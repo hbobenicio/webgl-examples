@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>#EleNão</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="300">
+        Seu browser não suporta HTML 5. Utilize um browser mais moderno para visualizar este exemplo.
+    </canvas>
+    
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        precision mediump float;
+
+        attribute vec2 vertPosition;
+        attribute vec3 vertColor;
+
+        varying vec3 fragColor;
+
+        void main() {
+            fragColor = vertColor;
+            gl_Position = vec4(vertPosition, 0.0, 1.0);
+        }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+
+        varying vec3 fragColor;
+
+        void main(void) {
+            gl_FragColor = vec4(fragColor, 1.0);
+        }
+    </script>
+</body>
+</html>
